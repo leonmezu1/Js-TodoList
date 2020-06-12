@@ -1,5 +1,5 @@
 {
-  "name": "js-todoList",
+  "name": "js-todolist",
   "version": "1.0.0",
   "description": "To-do web application using webpack ES6 Babel and ESlint",
   "main": "./src/js/index.js",
