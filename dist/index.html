@@ -8,16 +8,255 @@
     <meta http-equiv="Content-Type" />
     <link
       rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
     />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
     <title>To-do</title>
   </head>
   <body>
-      <h1>Helloooo!</h1>
+    <div class="d-flex flex-column" id="todo-container">
+      <div id="navigation" class="d-flex align-items center justify-content-between px-5">
+        <div class="logo"><i class="fas fa-check-double"></i></div>
+        <div class="app-title font-weight-bold">To-Do</div>
+        <div class="app-settings"><i class="fas fa-cog"></i>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-row main-view no-gutter" id="main-view">
+        <div class="col-md-3 left-panel">
+            <div class="project-manager d-flex flex-column">
+                <div class="projects-head d-flex justify-content-between py-3 px-3">
+                    <div class="projects-title">
+                        <i class="fas fa-chevron-right mr-4"></i>
+                        <span class="mr-auto bold">Projects</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                </div>
+                <div id="projects-container" class="d-flex flex-column text-center">
+                    <p>Project</p>
+                    <p>test item</p>
+                    <p>test item</p>
+                    <p>test item</p>
+                    <p>test item</p>
+                    <p>test item</p>
+                    <p>test item</p>
+                    <p>test item</p>
+                    <p>test item</p>
+                </div>
+            </div>
+            <div class="task-manager d-flex flex-column">
+                <div class="tasks-head d-flex justify-content-between py-3 px-3">
+                    <div class="tasks-title">
+                        <i class="fas fa-chevron-right mr-4"></i>
+                        <span class="mr-auto bold">All Todo's</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                </div>
+                <div id="tasks-container" class="text-center">
+                    <p>All tasks</p>
+                    <p>test item</p>
+                    <p>test item</p>
+                    <p>test item</p>
+                    <p>test item</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9 tasks d-flex flex-column">
+            <span class="big-titles align-self-end">To-do's</span>
+            <div class="todo-display">
+                <h2 class="mb-4 bold">Pending todo's</h2>
+                <div id="pending" class="d-flex flex-column text-center">
+                    <div class="todo">
+                        <div class="todo-priority">
+                            <i class="far fa-circle"></i>
+                        </div>
+                        <div class="info-wrapper">
+                            <div class="todo-title">Test todo title</div>
+                            <div class="todo-description">Test todo description</div>
+                        </div>
+                        <div class="todo-due-date">
+                            <span>Due date: 2020-8-19</span>
+                        </div>
+                    </div>
+                    <div class="todo">
+                        <div class="todo-priority">
+                            <i class="far fa-circle"></i>
+                        </div>
+                        <div class="info-wrapper">
+                            <div class="todo-title">Test todo title</div>
+                            <div class="todo-description">Test todo description</div>
+                        </div>
+                        <div class="todo-due-date">
+                            <span>Due date: 2020-8-19</span>
+                        </div>
+                    </div>
+                    <div class="todo">
+                        <div class="todo-priority">
+                            <i class="far fa-circle"></i>
+                        </div>
+                        <div class="info-wrapper">
+                            <div class="todo-title">Test todo title</div>
+                            <div class="todo-description">Test todo description</div>
+                        </div>
+                        <div class="todo-due-date">
+                            <span>Due date: 2020-8-19</span>
+                        </div>
+                    </div>
+                    <div class="todo">
+                        <div class="todo-priority">
+                            <i class="far fa-circle"></i>
+                        </div>
+                        <div class="info-wrapper">
+                            <div class="todo-title">Test todo title</div>
+                            <div class="todo-description">Test todo description</div>
+                        </div>
+                        <div class="todo-due-date">
+                            <span>Due date: 2020-8-19</span>
+                        </div>
+                    </div>
+                    <div class="todo">
+                        <div class="todo-priority">
+                            <i class="far fa-circle"></i>
+                        </div>
+                        <div class="info-wrapper">
+                            <div class="todo-title">Test todo title</div>
+                            <div class="todo-description">Test todo description</div>
+                        </div>
+                        <div class="todo-due-date">
+                            <span>Due date: 2020-8-19</span>
+                        </div>
+                    </div>
+                    <div class="todo">
+                        <div class="todo-priority">
+                            <i class="far fa-circle"></i>
+                        </div>
+                        <div class="info-wrapper">
+                            <div class="todo-title">Test todo title</div>
+                            <div class="todo-description">Test todo description</div>
+                        </div>
+                        <div class="todo-due-date">
+                            <span>Due date: 2020-8-19</span>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="my-4 bold">Completed todo's</h2>
+                <div id="completed" class="d-flex flex-column text-center">
+                    <div class="todo">
+                        <div class="todo-priority">
+                            <i class="far fa-circle"></i>
+                        </div>
+                        <div class="info-wrapper">
+                            <div class="todo-title">Test todo title</div>
+                            <div class="todo-description">Test todo description</div>
+                        </div>
+                        <div class="todo-due-date">
+                            <span>Due date: 2020-8-19</span>
+                        </div>
+                    </div>
+                    <div class="todo">
+                        <div class="todo-priority">
+                            <i class="far fa-circle"></i>
+                        </div>
+                        <div class="info-wrapper">
+                            <div class="todo-title">Test todo title</div>
+                            <div class="todo-description">Test todo description</div>
+                        </div>
+                        <div class="todo-due-date">
+                            <span>Due date: 2020-8-19</span>
+                        </div>
+                    </div>
+                    <div class="todo">
+                        <div class="todo-priority">
+                            <i class="far fa-circle"></i>
+                        </div>
+                        <div class="info-wrapper">
+                            <div class="todo-title">Test todo title</div>
+                            <div class="todo-description">Test todo description</div>
+                        </div>
+                        <div class="todo-due-date">
+                            <span>Due date: 2020-8-19</span>
+                        </div>
+                    </div>
+                    <div class="todo">
+                        <div class="todo-priority">
+                            <i class="far fa-circle"></i>
+                        </div>
+                        <div class="info-wrapper">
+                            <div class="todo-title">Test todo title</div>
+                            <div class="todo-description">Test todo description</div>
+                        </div>
+                        <div class="todo-due-date">
+                            <span>Due date: 2020-8-19</span>
+                        </div>
+                    </div>
+                    <div class="todo">
+                        <div class="todo-priority">
+                            <i class="far fa-circle"></i>
+                        </div>
+                        <div class="info-wrapper">
+                            <div class="todo-title">Test todo title</div>
+                            <div class="todo-description">Test todo description</div>
+                        </div>
+                        <div class="todo-due-date">
+                            <span>Due date: 2020-8-19</span>
+                        </div>
+                    </div>
+                    <div class="todo">
+                        <div class="todo-priority">
+                            <i class="far fa-circle"></i>
+                        </div>
+                        <div class="info-wrapper">
+                            <div class="todo-title">Test todo title</div>
+                            <div class="todo-description">Test todo description</div>
+                        </div>
+                        <div class="todo-due-date">
+                            <span>Due date: 2020-8-19</span>
+                        </div>
+                    </div>
+                    <div class="todo">
+                        <div class="todo-priority">
+                            <i class="far fa-circle"></i>
+                        </div>
+                        <div class="info-wrapper">
+                            <div class="todo-title">Test todo title</div>
+                            <div class="todo-description">Test todo description</div>
+                        </div>
+                        <div class="todo-due-date">
+                            <span>Due date: 2020-8-19</span>
+                        </div>
+                    </div>
+                    <div class="todo">
+                        <div class="todo-priority">
+                            <i class="far fa-circle"></i>
+                        </div>
+                        <div class="info-wrapper">
+                            <div class="todo-title">Test todo title</div>
+                            <div class="todo-description">Test todo description</div>
+                        </div>
+                        <div class="todo-due-date">
+                            <span>Due date: 2020-8-19</span>
+                        </div>
+                    </div>
+                    <div class="todo">
+                        <div class="todo-priority">
+                            <i class="far fa-circle"></i>
+                        </div>
+                        <div class="info-wrapper">
+                            <div class="todo-title">Test todo title</div>
+                            <div class="todo-description">Test todo description</div>
+                        </div>
+                        <div class="todo-due-date">
+                            <span>Due date: 2020-8-19</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
   </body>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
