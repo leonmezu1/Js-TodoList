@@ -1,0 +1,26 @@
+{
+  "name": "js-todoList",
+  "version": "1.0.0",
+  "description": "To-do web application using webpack ES6 Babel and ESlint",
+  "main": "./src/js/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leonmezu1/Js-TodoList.git"
+  },
+  "keywords": [
+    "webpack",
+    "ES6",
+    "ESlint",
+    "webapp",
+    "JavaScript"
+  ],
+  "author": "Leonardo Mezu Raymond Oluoch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leonmezu1/Js-TodoList/issues"
+  },
+  "homepage": "https://github.com/leonmezu1/Js-TodoList#readme"
+}
