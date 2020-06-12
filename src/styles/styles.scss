@@ -138,3 +138,20 @@ $icons: #727272;
     }
   }
 }
+
+.modal > * {
+  font-size: 16px;
+
+  .modal-title {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  input, select {
+    font-size: 16px;
+  }
+
+  .btn {
+    font-size: 16px;
+  }
+}
