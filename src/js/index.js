@@ -1,5 +1,3 @@
-/* var */
+import '../styles/styles.scss';
 
-/* functions */
-
-/* event listeners */
+console.log('Test 2');
