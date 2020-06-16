@@ -37,6 +37,7 @@
                     </div>
                 </div>
 
+                <!-- Project Name Modal -->
                 <div class="modal fade" id="projectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -47,14 +48,14 @@
                           </button>
                         </div>
                         <div class="modal-body">
-                            <form>
-                            <div class="form-group">
-                                <label for="project-name">Project Name</label>
-                                <input type="text" class="form-control" id="pName">
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Add</button>
+                            <form id="projectName">
+                                <div class="form-group">
+                                    <label for="project-name">Project Name</label>
+                                    <input type="text" class="form-control" id="pName">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Add</button>
                                 </div>
                             </form>
                         </div>
@@ -62,17 +63,7 @@
                     </div>
                   </div>
 
-                <div id="projects-container" class="d-flex flex-column text-center">
-                    <p>Project</p>
-                    <p>test item</p>
-                    <p>test item</p>
-                    <p>test item</p>
-                    <p>test item</p>
-                    <p>test item</p>
-                    <p>test item</p>
-                    <p>test item</p>
-                    <p>test item</p>
-                </div>
+                <div id="projects-container" class="d-flex flex-column text-center"></div>
             </div>
             <div class="task-manager d-flex flex-column">
                 <div class="tasks-head d-flex justify-content-between py-3 px-3">
