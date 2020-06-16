@@ -7,23 +7,39 @@ const height = navigation.offsetHeight;
 
 mainView.style.height = `${window.innerHeight - height}px`;
 
-const projectname = document.getElementById('projectName');
+/*  */
 
-const ttitle = document.getElementById('tTitle').value;
-const tdescription = document.getElementById('tDescription').value;
-const tduedate = document.getElementById('tDueDate').value;
-const tpriority = document.getElementById('tPriority').value;
-const tproject = document.getElementById('tProject').value;
+const buttonTrigger = document.querySelectorAll('[data-target]');
+/*  */
 
+buttonTrigger[0].addEventListener('click', () => {
+  const projectname = document.getElementById('projectName');
+  projectname.addEventListener('submit', () => {
+    const container = document.getElementById('projects-container');
+    const pname = document.getElementById('pName').value;
+    let project = document.createElement('p');
+    document.getElementById('pName').value = '';
+    project.innerText = pname;
+    container.appendChild(project);
+    console.log(project);
+    $('#projectModal').modal('toggle');
+  });
+}, { once: true });
 
-const addProjectName = (pname) => {
-  e.preventDefault();
-};
+buttonTrigger[1].addEventListener('click', () => {
+  const task = document.getElementById('taskForm');
+  task.addEventListener('submit', () => {
+    const container = document.getElementById('tasks-container');
+    let taskname = document.createElement('p');
+    const tTitle = document.getElementById('tTitle').value;
+    const tDescription = document.getElementById('tDescription').value;
+    const tDuedate = document.getElementById('tDueDate').value;
+    const tPriority = document.getElementById('tPriority').value;
+    const tProject = document.getElementById('tProject').value;
+    taskname.innerHTML = tTitle;
+    container.appendChild(taskname);
+    $('#todoModal').modal('toggle');
+  });
+}, { once: true });
 
-projectname.addEventListener('submit', () => {
-  const pname = document.getElementById('pName').value;
-  const project = document.createElement('p');
-  project.innerText = pname;
-  const container = document.getElementById('projects-container');
-  container.appendChild(project);
-});
+/* $('#todoModal').modal('toggle'); */
