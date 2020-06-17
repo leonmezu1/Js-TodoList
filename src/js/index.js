@@ -36,7 +36,6 @@ const Todo = (title, description, date, priority, project) => {
   const tPriority = priority;
   const tProject = project;
 
-
   return {
     tTitle, tDescription, tDate, tPriority, tProject,
   };
@@ -54,7 +53,18 @@ const renderProjects = () => {
   });
 };
 
-const testProject = Project('General');
+const renderTodos = () => {
+  const container = document.getElementById('tasks-container');
+  const projects = getProjectsLs();
+  projects.forEach(project => {
+    project.pTodos.forEach(todo => {
+      const taskname = document.createElement('span');
+      taskname.innerHTML = todo.tTitle;
+      taskname.classList.add('todo-name-bar');
+      container.appendChild(taskname);
+    });
+  });
+};
 
 const closeModals = (closeBtns) => {
   closeBtns.forEach(btn => {
@@ -65,8 +75,6 @@ const closeModals = (closeBtns) => {
     });
   });
 };
-
-/* <option value="1">Project One</option> */
 
 const populateSelect = () => {
   const projects = getProjectsLs();
@@ -152,15 +160,11 @@ buttonTrigger[0].addEventListener('click', () => {
     const projects = getProjectsLs();
     e.preventDefault();
     e.stopPropagation();
-    const container = document.getElementById('projects-container');
-    const project = document.createElement('span');
     const pname = document.getElementById('pName').value;
     const projectObject = Project(pname);
     projects.push(projectObject);
     setProjectsLs(projects);
-    project.innerText = pname;
-    project.classList.add('project-name-bar');
-    container.appendChild(project);
+    renderProjects();
   }, { once: true }); /* Enable just one time */
 });
 
@@ -175,8 +179,7 @@ buttonTrigger[1].addEventListener('click', () => {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     e.stopPropagation();
-    const container = document.getElementById('tasks-container');
-    const taskname = document.createElement('p');
+    const projectsArray = getProjectsLs();
     const tTitle = document.getElementById('tTitle').value;
     const tDescription = document.getElementById('tDescription').value;
     const tDuedate = document.getElementById('tDueDate').value;
@@ -184,12 +187,14 @@ buttonTrigger[1].addEventListener('click', () => {
     const selectedPriority = tPriority.options[tPriority.selectedIndex].value;
     const tProject = document.getElementById('tProject');
     const selectedProject = tProject.options[tProject.selectedIndex].value;
-    taskname.innerHTML = tTitle;
-    taskname.classList.add('todo-name-bar');
-    container.appendChild(taskname);
-
     const todo = Todo(tTitle, tDescription, tDuedate, selectedPriority, selectedProject);
-    testProject.setTodos(todo);
+
+    projectsArray[projectsArray.findIndex(
+      project => project.pName === selectedProject,
+    )].pTodos.push(todo);
+
+    setProjectsLs(projectsArray);
+    renderTodos();
   }, { once: true });
 });
 
@@ -200,4 +205,5 @@ const setHeight = () => {
 
 document.addEventListener('DOMContentLoaded', setHeight);
 document.addEventListener('DOMContentLoaded', renderProjects);
+document.addEventListener('DOMContentLoaded', renderTodos);
 window.addEventListener('resize', setHeight);
