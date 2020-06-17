@@ -52,8 +52,7 @@ $icons: #727272;
 .left-panel {
   padding: 1.2rem;
   height: 100%;
-  border-right: 1px solid lightgrey;
-  background-color: darken($color: #fafafa, $amount: 2%);
+  background-color: #fafafa;
   .project-manager,
   .task-manager {
     max-height: 50%;
@@ -62,25 +61,79 @@ $icons: #727272;
   .tasks-head {
     font-size: 1.8rem;
     align-items: center;
-    border-top: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid darken($color: whitesmoke, $amount: 3%);
 
     i {
       color: $icons;
       font-size: 1.6rem;
+      margin-right: 0.5rem;
     }
 
     i:hover {
-      color: darken($color: $icons, $amount: 15%);
-    }
+      margin-right: 0;
+      padding: 0.5rem;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+      color: white;
+      background-color: gray;
+}
   }
   #projects-container,
   #tasks-container {
     height: auto;
     overflow-y: auto;
-    p {
-      font-size: 1.6rem;
+  }
+
+  .project-name-bar {
+    font-size: 1.8rem;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+
+    &:hover {
+      color: white;
+      height: 90%;
+      width: 90%;
+      border-radius: 0.5rem;
+      -webkit-border-radius: 0.5rem;
+      -moz-border-radius: 0.5rem;
+      -ms-border-radius: 0.5rem;
+      -o-border-radius: 0.5rem;
+      background-color: #dc4c3f;
+      font-weight: bold;
     }
+  }
+
+  .todo-name-bar {
+    font-size: 1.8rem;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+
+    &:hover {
+      color: white;
+      height: 90%;
+      width: 90%;
+      border-radius: 0.5rem;
+      -webkit-border-radius: 0.5rem;
+      -moz-border-radius: 0.5rem;
+      -ms-border-radius: 0.5rem;
+      -o-border-radius: 0.5rem;
+      background-color: blue;
+      font-weight: bold;
+    }
+  }
+}
+
+form {
+  label,
+  input[type='text'],
+  input[type='date'],
+  option,
+  .btn,
+  textarea[type='text'] {
+    font-size: 1.4rem;
   }
 }
 
@@ -125,7 +178,7 @@ $icons: #727272;
         }
 
         .todo-title {
-            width: 25%;
+          width: 25%;
         }
         .todo-description {
             width: 75%;

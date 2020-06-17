@@ -65,8 +65,8 @@ const addSecondForm = () => {
     </div>
     <div class="form-group">
       <label for="priority">Priority</label>
-      <select class="form-control" id="priority">
-        <option>Select Priority</option>
+      <select class="form-control" id="priority" style="font-size: 1.4rem;">
+        <option hidden selected>Select Priority</option>
         <option value="high">High</option>
         <option value="moderate">Moderate</option>
         <option value="low">Low</option>
@@ -74,8 +74,8 @@ const addSecondForm = () => {
     </div>
     <div class="form-group">
       <label for="project">Project</label>
-      <select class="form-control" id="project">
-        <option>Select Project</option>
+      <select class="form-control" id="project" style="font-size: 1.4rem;">
+        <option hidden selected>Select Project</option>
         <option value="1">Project One</option>
         <option value="2">Project Two</option>
         <option value="3">Project Three</option>
@@ -100,9 +100,11 @@ buttonTrigger[0].addEventListener('click', () => {
     e.preventDefault();
     e.stopPropagation();
     const container = document.getElementById('projects-container');
+    const project = document.createElement('span');
     const pname = document.getElementById('pName').value;
-    container.innerHTML += `<p>${pname}</p>`;
-    document.getElementById('pName').value = '';
+    project.innerText = pname;
+    project.classList.add('project-name-bar');
+    container.appendChild(project);
   }, { once: true }); /* Enable just one time */
 });
 
@@ -121,6 +123,7 @@ buttonTrigger[1].addEventListener('click', () => {
     const taskname = document.createElement('p');
     const tTitle = document.getElementById('tTitle').value;
     taskname.innerHTML = tTitle;
+    taskname.classList.add('todo-name-bar');
     container.appendChild(taskname);
   }, { once: true });
 });
