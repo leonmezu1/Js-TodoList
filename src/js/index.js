@@ -13,6 +13,20 @@ const tproject = document.getElementById('tProject').value; */
 const buttonTrigger = document.querySelectorAll('[data-target]');
 const modal1 = document.getElementById('modal-1');
 /*  */
+
+const Todo = (title, description, date, priority, project) => {
+  const tTitle = title;
+  const tDescription = description;
+  const tDate = date;
+  const tPriority = priority;
+  const tProject = project;
+
+
+  return {
+    tTitle, tDescription, tDate, tPriority, tProject,
+  };
+};
+
 const closeModals = (closeBtns) => {
   closeBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -65,7 +79,7 @@ const addSecondForm = () => {
     </div>
     <div class="form-group">
       <label for="priority">Priority</label>
-      <select class="form-control" id="priority" style="font-size: 1.4rem;">
+      <select class="form-control" id="tPriority" style="font-size: 1.4rem;">
         <option hidden selected>Select Priority</option>
         <option value="high">High</option>
         <option value="moderate">Moderate</option>
@@ -74,7 +88,7 @@ const addSecondForm = () => {
     </div>
     <div class="form-group">
       <label for="project">Project</label>
-      <select class="form-control" id="project" style="font-size: 1.4rem;">
+      <select class="form-control" id="tProject" style="font-size: 1.4rem;">
         <option hidden selected>Select Project</option>
         <option value="1">Project One</option>
         <option value="2">Project Two</option>
@@ -122,9 +136,18 @@ buttonTrigger[1].addEventListener('click', () => {
     const container = document.getElementById('tasks-container');
     const taskname = document.createElement('p');
     const tTitle = document.getElementById('tTitle').value;
+    const tDescription = document.getElementById('tDescription').value;
+    const tDuedate = document.getElementById('tDueDate').value;
+    const tPriority = document.getElementById('tPriority');
+    const selectedPriority = tPriority.options[tPriority.selectedIndex].value;
+    const tProject = document.getElementById('tProject');
+    const selectedProject = tProject.options[tProject.selectedIndex].value;
     taskname.innerHTML = tTitle;
     taskname.classList.add('todo-name-bar');
     container.appendChild(taskname);
+
+    const todo = Todo(tTitle, tDescription, tDuedate, selectedPriority, selectedProject);
+    console.log(todo);
   }, { once: true });
 });
 
