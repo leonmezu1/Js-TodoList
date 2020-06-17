@@ -3,16 +3,31 @@ import '../styles/styles.scss';
 
 const navigation = document.getElementById('navigation');
 const mainView = document.getElementById('main-view');
-
-/* const ttitle = document.getElementById('tTitle').value;
-const tdescription = document.getElementById('tDescription').value;
-const tduedate = document.getElementById('tDueDate').value;
-const tpriority = document.getElementById('tPriority').value;
-const tproject = document.getElementById('tProject').value; */
-
 const buttonTrigger = document.querySelectorAll('[data-target]');
 const modal1 = document.getElementById('modal-1');
 /*  */
+
+const Project = (projectName) => {
+  const pName = projectName;
+  const pTodos = [];
+
+  const setTodos = (todo) => {
+    pTodos.push(todo);
+  };
+
+  return {
+    pName, pTodos, setTodos,
+  };
+};
+
+const getProjectsLs = () => {
+  const projects = localStorage.getItem('projects') === null ? [Project('General')] : JSON.parse(localStorage.getItem('projects'));
+  return projects;
+};
+
+const setProjectsLs = (projects) => {
+  localStorage.setItem('projects', JSON.stringify(projects));
+};
 
 const Todo = (title, description, date, priority, project) => {
   const tTitle = title;
@@ -27,6 +42,20 @@ const Todo = (title, description, date, priority, project) => {
   };
 };
 
+const renderProjects = () => {
+  const container = document.getElementById('projects-container');
+  const projects = getProjectsLs();
+  projects.forEach(project => {
+    const projectElement = document.createElement('span');
+    const pname = project.pName;
+    projectElement.innerText = pname;
+    projectElement.classList.add('project-name-bar');
+    container.appendChild(projectElement);
+  });
+};
+
+const testProject = Project('General');
+
 const closeModals = (closeBtns) => {
   closeBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -35,6 +64,17 @@ const closeModals = (closeBtns) => {
       modal.classList.add('hide');
     });
   });
+};
+
+/* <option value="1">Project One</option> */
+
+const populateSelect = () => {
+  const projects = getProjectsLs();
+  let template = '';
+  projects.forEach(project => {
+    template += `<option value="${project.pName}">${project.pName}</option> \n`;
+  });
+  return template;
 };
 
 const addFirstForm = () => {
@@ -90,9 +130,7 @@ const addSecondForm = () => {
       <label for="project">Project</label>
       <select class="form-control" id="tProject" style="font-size: 1.4rem;">
         <option hidden selected>Select Project</option>
-        <option value="1">Project One</option>
-        <option value="2">Project Two</option>
-        <option value="3">Project Three</option>
+        ${populateSelect()}
       </select>
     </div>
     <div class="modal-footer">
@@ -111,11 +149,15 @@ buttonTrigger[0].addEventListener('click', () => {
   const form = document.getElementById('projectName');
   closeModals(closeBtns);
   form.addEventListener('submit', (e) => {
+    const projects = getProjectsLs();
     e.preventDefault();
     e.stopPropagation();
     const container = document.getElementById('projects-container');
     const project = document.createElement('span');
     const pname = document.getElementById('pName').value;
+    const projectObject = Project(pname);
+    projects.push(projectObject);
+    setProjectsLs(projects);
     project.innerText = pname;
     project.classList.add('project-name-bar');
     container.appendChild(project);
@@ -147,7 +189,7 @@ buttonTrigger[1].addEventListener('click', () => {
     container.appendChild(taskname);
 
     const todo = Todo(tTitle, tDescription, tDuedate, selectedPriority, selectedProject);
-    console.log(todo);
+    testProject.setTodos(todo);
   }, { once: true });
 });
 
@@ -157,4 +199,5 @@ const setHeight = () => {
 };
 
 document.addEventListener('DOMContentLoaded', setHeight);
+document.addEventListener('DOMContentLoaded', renderProjects);
 window.addEventListener('resize', setHeight);
