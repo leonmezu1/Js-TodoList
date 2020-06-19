@@ -1,35 +1,38 @@
 # Todo list webapp
 
-![sample](src/assets/images/readme.png)
+![sample](src/img/todolist.png)
 
-## # Js-TodoList [Live Link](https://eltenedor.netlify.app/#)
+## # Js-TodoList [Live Link]()
 
 ## Usage
 
 > Clone the repository to your local machine using ssh:
 
 ```bash
-git clone git@github.com:rOluochKe/JS-TicTacToe.git
+git clone git@github.com:leonmezu1/Js-TodoList.git
 ```
 
 > Clone the repository to your local machine using https:
 
 ```bash
-git clone git@github.com:rOluochKe/JS-TicTacToe.git
+git clone https://github.com/leonmezu1/Js-TodoList.git
 ```
 
 > cd into the directory
 
 ```bash
-cd Js-Rest
+cd Js-TodoList
 ```
 
 > Run Server Locally
 
 ## Functionalities
 
-- Beautiful Restaurant Web Page
+- Beautiful todo list Web Page
 - Vanilla Javascript
-- Bootstrap user friendly interface
+- Localstorage
+- moduling
 
 ## Designed and developed by
+- [Raymond Oluoch](https://github.com/rOluochKe)
+- [Leonardo Mezu](https://github.com/leonmezu1)
